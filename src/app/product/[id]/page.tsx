@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getProduct } from '@/services/api';
+import { getProduct, getProducts } from '@/services/api';
 import { notFound } from 'next/navigation';
 import ProductRating from '@/components/ProductRating';
 
@@ -8,6 +8,17 @@ interface ProductPageProps {
     id: string;
   };
 }
+
+// Generate static paths for all products
+export async function generateStaticParams() {
+  const products = await getProducts();
+  return products.map((product) => ({
+    id: product.id.toString(),
+  }));
+}
+
+// Enable static generation with revalidation
+export const revalidate = 3600; // Revalidate every hour
 
 export default async function ProductPage({ params }: ProductPageProps) {
   // Check if the ID is a valid number
