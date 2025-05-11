@@ -8,7 +8,7 @@ const nextConfig = {
         pathname: '/img/**',
       },
     ],
-  },
+  }
 };
 
-module.exports = nextConfig; 
+module.exports = nextConfig;
