@@ -9,4 +9,4 @@ export interface Product {
     rate: number;
     count: number;
   };
-} 
+}
