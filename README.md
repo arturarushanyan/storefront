@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Storefront
+
+A modern e-commerce storefront built with Next.js 13+ and Tailwind CSS.
+
+## Features
+
+- 🛍️ Product catalog with grid layout
+- 🔍 Product detail pages
+- ⭐ Product ratings and reviews
+- 🎨 Responsive design
+- ⚡ Fast page loads with static generation
+- 🔄 Incremental Static Regeneration (ISR)
+- 🖼️ Optimized images with Next.js Image
+- 🎯 SEO optimized with dynamic metadata
+
+## Tech Stack
+
+- **Framework**: Next.js 13+ (App Router)
+- **Styling**: Tailwind CSS
+- **API**: REST API (Fake Store API)
+- **Type Safety**: TypeScript
+- **Image Optimization**: Next.js Image
+- **State Management**: React Hooks
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js 13+ app directory
+│   ├── product/           # Product routes
+│   │   └── [id]/         # Dynamic product pages
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Home page
+├── components/            # React components
+│   ├── ProductCard.tsx   # Product card component
+│   └── ProductRating.tsx # Rating display component
+├── services/             # API services
+│   └── api.ts           # API client
+└── types/               # TypeScript types
+    └── product.ts      # Product type definitions
+```
+
+## Key Decisions
+
+1. **App Router**: Using Next.js 13+ App Router for better performance and features
+2. **Static Generation**: Implementing ISR for product pages with 1-hour revalidation
+3. **Component Structure**: 
+   - Separated product rating into its own component for reusability
+   - Modular product card component
+4. **Error Handling**:
+   - Custom 404 page for not found products
+   - Error boundaries for unexpected errors
+   - Loading states for better UX
+5. **SEO Optimization**:
+   - Dynamic metadata for product pages
+   - OpenGraph and Twitter card support
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up environment variables:
+   ```bash
+   NEXT_PUBLIC_API_URL=https://fakestoreapi.com
+   ```
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Future Improvements
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Features**:
+   - Shopping cart functionality
+   - User authentication
+   - Product search and filtering
+   - Category pages
+   - Wishlist functionality
+   - Product reviews submission
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Technical**:
+   - Add unit and integration tests
+   - Implement proper error tracking
+   - Add analytics
+   - Optimize bundle size
+   - Add PWA support
+   - Implement proper caching strategy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **UI/UX**:
+   - Add dark mode support
+   - Improve loading states
+   - Add animations
+   - Implement infinite scroll for product list
+   - Add product image gallery
+   - Improve mobile navigation
 
-## Learn More
+4. **Performance**:
+   - Implement proper caching
+   - Add performance monitoring
+   - Optimize image loading
+   - Add service worker for offline support
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
