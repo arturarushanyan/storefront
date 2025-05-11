@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     };
   } catch (error) {
     return {
-      title: 'Error Loading Product',
+      title: `Error Loading Product ${error}`,
     };
   }
 }

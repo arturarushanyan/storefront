@@ -5,7 +5,7 @@ export default function NotFound() {
     <main className="container mx-auto px-4 py-16 text-center">
       <h1 className="text-4xl font-bold text-gray-900 mb-4">Product Not Found</h1>
       <p className="text-lg text-gray-600 mb-8">
-        Sorry, we couldn't find the product you're looking for.
+        Sorry, we could not find the product you are looking for.
       </p>
       <Link
         href="/"

@@ -19,7 +19,7 @@ export default function ProductError({
     <main className="container mx-auto px-4 py-16 text-center">
       <h1 className="text-4xl font-bold text-gray-900 mb-4">Something went wrong!</h1>
       <p className="text-lg text-gray-600 mb-8">
-        We're sorry, but there was an error loading this product.
+        We are sorry, but there was an error loading this product.
       </p>
       <div className="flex gap-4 justify-center">
         <button
