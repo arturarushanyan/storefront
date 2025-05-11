@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { getProduct, getProducts } from '@/services/api';
 import { notFound } from 'next/navigation';
 import ProductRating from '@/components/ProductRating';
+import { Metadata } from 'next';
 
 interface ProductPageProps {
   params: {
@@ -19,6 +20,52 @@ export async function generateStaticParams() {
 
 // Enable static generation with revalidation
 export const revalidate = 3600; // Revalidate every hour
+
+// Generate metadata for the product page
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+  const productId = parseInt(params.id);
+  if (isNaN(productId)) {
+    return {
+      title: 'Product Not Found',
+    };
+  }
+
+  try {
+    const product = await getProduct(productId);
+    if (!product) {
+      return {
+        title: 'Product Not Found',
+      };
+    }
+
+    return {
+      title: `${product.title} | Store`,
+      description: product.description,
+      openGraph: {
+        title: product.title,
+        description: product.description,
+        images: [
+          {
+            url: product.image,
+            width: 800,
+            height: 800,
+            alt: product.title,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: product.title,
+        description: product.description,
+        images: [product.image],
+      },
+    };
+  } catch (error) {
+    return {
+      title: 'Error Loading Product',
+    };
+  }
+}
 
 export default async function ProductPage({ params }: ProductPageProps) {
   // Check if the ID is a valid number
